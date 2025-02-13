@@ -1,148 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flex Layout</title>
-  <!-- HINT:
-  https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors
-  https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators 
-  -->
-  <style>
-    body {
-      font-size: 2rem;
-    }
-
-    .container {
-      color: white;
-      border: 5px solid gold;
-      display: flex;
-      flex-wrap: wrap;
-      height: 80vh;
-
-    }
-
-    .container>* {
-      width: 200px;
-    }
-
-    .red {
-      background-color: #eb4d4b;
-    }
-
-    .orange {
-      background-color: #f0932b;
-    }
-
-    .yellow {
-      background-color: #f6e58d;
-    }
-
-    .green {
-      background-color: #6ab04c;
-    }
-
-    .blue {
-      background-color: #4834d4;
-    }
-
-    .indigo {
-      background-color: #30336b;
-    }
-
-    .purple {
-      background-color: #be2edd;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="red">Red</div>
-    <div class="orange">Orange</div>
-    <div class="yellow">Yellow</div>
-    <div class="green">Green</div>
-    <div class="blue">Blue</div>
-    <div class="indigo">Indigo</div>
-    <div class="purple">Purple</div>
-  </div>
-
-  <div style="display: flex; gap: 2em; justify-content: space-between;">
-    <div>
-      <label for="justify-content">Justify Content:</label>
-      <select id="justify-content">
-        <option value="flex-start">Flex Start</option>
-        <option value="flex-end">Flex End</option>
-        <option value="center">Center</option>
-        <option value="space-between">Space Between</option>
-        <option value="space-around">Space Around</option>
-        <option value="space-evenly">Space Evenly</option>
-      </select>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Layout</title>
+    <style>
+      body {
+        font-size: 2rem;
+      }
+      .container {
+        color: white;
+        border: 5px solid gold;
+        display: flex;
+        flex-wrap: wrap;
+        height: 80vh;
+        gap: 10px; /* Added gap property */
+      }
+      .container > * {
+        width: 200px;
+      }
+      .red {
+        background-color: #eb4d4b;
+      }
+      .orange {
+        background-color: #f0932b;
+      }
+      .yellow {
+        background-color: #f6e58d;
+      }
+      .green {
+        background-color: #6ab04c;
+      }
+      .blue {
+        background-color: #4834d4;
+      }
+      .indigo {
+        background-color: #30336b;
+      }
+      .purple {
+        background-color: #be2edd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="red" data-order="1">Red</div>
+      <div class="orange" data-order="2">Orange</div>
+      <div class="yellow" data-order="3">Yellow</div>
+      <div class="green" data-order="4">Green</div>
+      <div class="blue" data-order="5">Blue</div>
+      <div class="indigo" data-order="6">Indigo</div>
+      <div class="purple" data-order="7">Purple</div>
     </div>
-    <div>
-      <label for="flex-wrap">Flex Wrap:</label>
-      <select id="flex-wrap">
-        <option value="nowrap">No Wrap</option>
-        <option value="wrap">Wrap</option>
-        <option value="wrap-reverse">Wrap Reverse</option>
-      </select>
+
+    <div style="display: flex; gap: 2em; justify-content: space-between">
+      <div>
+        <label for="justify-content">Justify Content:</label>
+        <select id="justify-content">
+          <option value="flex-start">Flex Start</option>
+          <option value="flex-end">Flex End</option>
+          <option value="center">Center</option>
+          <option value="space-between">Space Between</option>
+          <option value="space-around">Space Around</option>
+          <option value="space-evenly">Space Evenly</option>
+        </select>
+      </div>
+      <div>
+        <label for="flex-wrap">Flex Wrap:</label>
+        <select id="flex-wrap">
+          <option value="nowrap">No Wrap</option>
+          <option value="wrap">Wrap</option>
+          <option value="wrap-reverse">Wrap Reverse</option>
+        </select>
+      </div>
+      <div>
+        <label for="align-items">Align Items:</label>
+        <select id="align-items">
+          <option value="flex-start">Flex Start</option>
+          <option value="flex-end">Flex End</option>
+          <option value="center">Center</option>
+          <option value="baseline">Baseline</option>
+          <option value="stretch">Stretch</option>
+        </select>
+      </div>
+      <div>
+        <label for="align-content">Align Content:</label>
+        <select id="align-content">
+          <option value="flex-start">Flex Start</option>
+          <option value="flex-end">Flex End</option>
+          <option value="center">Center</option>
+          <option value="space-between">Space Between</option>
+          <option value="space-around">Space Around</option>
+          <option value="space-evenly">Space Evenly</option>
+          <option value="stretch">Stretch</option>
+        </select>
+      </div>
+      <div>
+        <label for="gap">Gap:</label>
+        <input type="range" id="gap" min="0" max="50" step="5" value="10" />
+      </div>
     </div>
+
     <div>
-      <label for="align-items">Align Items:</label>
-      <select id="align-items">
-        <option value="flex-start">Flex Start</option>
-        <option value="flex-end">Flex End</option>
-        <option value="center">Center</option>
-        <option value="baseline">Baseline</option>
-        <option value="stretch">Stretch</option>
+      <label for="order">Change Order (Select an Item):</label>
+      <select id="order">
+        <option value="1">Red</option>
+        <option value="2">Orange</option>
+        <option value="3">Yellow</option>
+        <option value="4">Green</option>
+        <option value="5">Blue</option>
+        <option value="6">Indigo</option>
+        <option value="7">Purple</option>
       </select>
+      <input type="number" id="order-value" min="1" max="7" value="1" />
+      <button id="update-order">Update Order</button>
     </div>
-    <div>
-      <label for="align-content">Align Content:</label>
-      <select id="align-content">
-        <option value="flex-start">Flex Start</option>
-        <option value="flex-end">Flex End</option>
-        <option value="center">Center</option>
-        <option value="space-between">Space Between</option>
-        <option value="space-around">Space Around</option>
-        <option value="space-evenly">Space Evenly</option>
-        <option value="stretch">Stretch</option>
-      </select>
-    </div>
-  </div>
-</body>
-<script>
-  // Get the flex container
-  const flexContainer = document.querySelector('.container');
-  // Get the dropdowns
-  const justifyContentDropdown = document.getElementById('justify-content');
-  const flexWrapDropdown = document.getElementById('flex-wrap');
-  const alignItemsDropdown = document.getElementById('align-items');
-  const alignContentDropdown = document.getElementById('align-content');
 
-  // Set the initial values
-  flexContainer.style.justifyContent = justifyContentDropdown.value;
-  flexContainer.style.flexWrap = flexWrapDropdown.value;
-  flexContainer.style.alignItems = alignItemsDropdown.value;
-  flexContainer.style.alignContent = alignContentDropdown.value;
+    <script>
+      const flexContainer = document.querySelector(".container");
+      const justifyContentDropdown = document.getElementById("justify-content");
+      const flexWrapDropdown = document.getElementById("flex-wrap");
+      const alignItemsDropdown = document.getElementById("align-items");
+      const alignContentDropdown = document.getElementById("align-content");
+      const gapInput = document.getElementById("gap");
+      const orderSelect = document.getElementById("order");
+      const orderValue = document.getElementById("order-value");
+      const updateOrderBtn = document.getElementById("update-order");
 
-  // Add event listeners to the dropdowns
-  justifyContentDropdown.addEventListener('change', (event) => {
-    flexContainer.style.justifyContent = event.target.value;
-  });
+      flexContainer.style.justifyContent = justifyContentDropdown.value;
+      flexContainer.style.flexWrap = flexWrapDropdown.value;
+      flexContainer.style.alignItems = alignItemsDropdown.value;
+      flexContainer.style.alignContent = alignContentDropdown.value;
+      flexContainer.style.gap = gapInput.value + "px";
 
-  flexWrapDropdown.addEventListener('change', (event) => {
-    flexContainer.style.flexWrap = event.target.value;
-  });
+      justifyContentDropdown.addEventListener("change", (event) => {
+        flexContainer.style.justifyContent = event.target.value;
+      });
 
-  alignItemsDropdown.addEventListener('change', (event) => {
-    flexContainer.style.alignItems = event.target.value;
-  });
+      flexWrapDropdown.addEventListener("change", (event) => {
+        flexContainer.style.flexWrap = event.target.value;
+      });
 
-  alignContentDropdown.addEventListener('change', (event) => {
-    flexContainer.style.alignContent = event.target.value;
-  });
-</script>
+      alignItemsDropdown.addEventListener("change", (event) => {
+        flexContainer.style.alignItems = event.target.value;
+      });
 
+      alignContentDropdown.addEventListener("change", (event) => {
+        flexContainer.style.alignContent = event.target.value;
+      });
+
+      gapInput.addEventListener("input", (event) => {
+        flexContainer.style.gap = event.target.value + "px";
+      });
+
+      updateOrderBtn.addEventListener("click", () => {
+        const selectedDiv = document.querySelector(
+          `.container > *:nth-child(${orderSelect.value})`
+        );
+        if (selectedDiv) {
+          selectedDiv.style.order = orderValue.value;
+        }
+      });
+    </script>
+  </body>
 </html>
