@@ -33,3 +33,9 @@ body {
 .purple {
   background-color: #be2edd;
 }
+
+.menu {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}

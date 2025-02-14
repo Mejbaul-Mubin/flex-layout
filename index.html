@@ -17,7 +17,7 @@
       <div class="purple" data-order="7">Purple</div>
     </div>
 
-    <div style="display: flex; gap: 2em; justify-content: space-between">
+    <div class="menu">
       <div>
         <label for="justify-content">Justify Content:</label>
         <select id="justify-content">
@@ -63,21 +63,21 @@
         <label for="gap">Gap:</label>
         <input type="range" id="gap" min="0" max="50" step="5" value="10" />
       </div>
-    </div>
 
-    <div>
-      <label for="order">Change Order (Select an Item):</label>
-      <select id="order">
-        <option value="1">Red</option>
-        <option value="2">Orange</option>
-        <option value="3">Yellow</option>
-        <option value="4">Green</option>
-        <option value="5">Blue</option>
-        <option value="6">Indigo</option>
-        <option value="7">Purple</option>
-      </select>
-      <input type="number" id="order-value" min="1" max="7" value="1" />
-      <button id="update-order">Update Order</button>
+      <div>
+        <label for="order">Change Order (Select an Item):</label>
+        <select id="order">
+          <option value="1">Red</option>
+          <option value="2">Orange</option>
+          <option value="3">Yellow</option>
+          <option value="4">Green</option>
+          <option value="5">Blue</option>
+          <option value="6">Indigo</option>
+          <option value="7">Purple</option>
+        </select>
+        <input type="number" id="order-value" min="1" max="7" value="1" />
+        <button id="update-order">Update Order</button>
+      </div>
     </div>
 
     <script src="./js/script.js"></script>
